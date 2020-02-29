@@ -14,7 +14,7 @@ import (
 func (k Kubectl) ctl(action string, args ...string) *exec.Cmd {
 	// prepare the arguments
 	argv := []string{action,
-		"--context", k.context.Get("name").MustStr(),
+		"--context", k.info.Kubeconfig.Context.Name,
 	}
 	argv = append(argv, args...)
 
